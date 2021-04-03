@@ -117,28 +117,14 @@
 			<img src="<?= base_url("assets/img/noot.svg") ?>" id="gambar" class="img" style="display:none; height: 500px;">
 		</center>
 
-		<div id="nama">
-		</div>
+		<!-- <div id="nama">
+		</div> -->
 
-		<div class="row mt-3" id="product" style="display:;">
+		<div class="row mt-3" id="nama" style="display:;">
 
-			<?php 
 
-				$get = $this->db->get('tbl_store')->result_array();
-				foreach ($get as $data) { ?>
 
-			<div class="col-sm-4">
-				<div class="card" style="width: 18rem;">
-				  <img class="card-img-top" src="<?= base_url() ?>assets/img/<?= $data['image'] ?>" alt="Card image cap">
-				  <div class="card-body">
-				    <p class="card-text" id="nama"><?= $data['nama_product'] ?></p>
-				    <h6 id="harga"><!-- <?= $data['kelurahan'] ?> --></h6>
-				   <a href="<?= base_url() ?>ebunga-product/<?= $data['id'] ?>" class="btn btn-primary text-center">Order</a>
-				  </div>
-				</div>
-			</div>
-
-		<?php } ?>
+		
 
 		</div>
 
@@ -364,15 +350,24 @@
 					var a = data.length;
 					if (a == 0) {
 						alert2();
+						$("#nama").hide();
 					} else {
 						alert1()
+						$("#nama").show();
 						var i;
-						var html;
+						var html ='';
 						for(i=0; i<data.length; i++){
-							html += '<p>'+data[i].nama_product+'</p>'+
+							html += '<div class="col-sm-4">'+
 									'<div class="card" style="width: 18rem;">'+
-									'<img class="card-img-top" src="<?= base_url() ?>assets/img/" alt="Card image cap">'+
-									'<div class="card-body">';
+									'<img class="card-img-top" src="<?= base_url() ?>assets/img/'+data[i].image+'" alt="Card image cap">'+
+									'<div class="card-body">'+
+									'<p class="card-text" id="nama">'+data[i].nama_product+'</p>'+
+									'<h6 id="harga">'+data[i].kelurahan+'</h6>'+
+									'<a href="<?= base_url() ?>order-produk/'+data[i].slug+'" class="btn btn-primary text-center">Order</a>'+
+									'</div>'+
+									'</div>'+
+									'</div>';
+
 
 							
 							
@@ -380,7 +375,7 @@
 
 						$("#nama").html(html);
 
-						
+			
 
 					}
 				}

@@ -52,5 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'ebunga';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
+$route['order-produk/(:any)'] ='ebunga/detail/$1';
 // $route['papan-bunga/(:any)'] = 'ebunga/get_produk/$1';
 // $route['ebunga-product/(:any)'] ='ebunga/product/$1';

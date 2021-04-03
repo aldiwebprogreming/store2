@@ -141,8 +141,18 @@
 		}
 
 
-		function ebungasaja(){
-			echo "hello";
+		function detail($slug){
+
+			$id = $slug;
+			
+			$data['detail'] = $this->db->get_where('tbl_store',  array('slug' => $id))->result_array();	
+			$add = $this->db->get_where('tbl_store', array('slug' =>$id))->result_array();
+			foreach ($add as $key) {};
+			$pos = $key['pos'];
+			$data['get_add'] = $this->db->get_where('provinsi', array('KPos' => $pos))->result_array(); 
+			
+			$this->load->view('detail_produk', $data);
+
 		}
 	}
 
