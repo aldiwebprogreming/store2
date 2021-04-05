@@ -339,7 +339,7 @@
 		$(document).ready(function(){
 			$("#selUser").change(function(){
 				var val = $(this).val();
-				// alert(val);
+				
 				$.ajax({
 				type:'GET',
 				url:"<?= base_url() ?>ebunga/get_produk?id="+val,

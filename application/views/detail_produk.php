@@ -79,6 +79,8 @@
 				<img src="<?= base_url() ?>assets/img/<?= $data['image'] ?>" alt="images" class="img-thumbnail">
 			</div>
 
+
+
 			<div class="col-sm-8">
 				<div class="card">
 				  <div class="card-header">
@@ -91,8 +93,15 @@
 				  	<h2>RP. <?= $data['harga'] ?></h2>
 				  	<hr>
 
-				  	<form method="post" action="<?= base_url() ?>ebunga/post_action">
+				  	
 
+				  	<form method="post" action="<?= base_url() ?>ebunga/view_order">
+
+				  	<input type="hidden" name="nama_produk" class="form-control" value="<?= $data['nama_product'] ?>">
+
+				  	<input type="hidden" name="id_produk" class="form-control" value="<?= $data['id'] ?>">
+
+				  	<input type="hidden" name="harga" class="form-control" value="<?= $data['harga'] ?>">
 				  	<!-- step 1  -->
 
 				  	<div id="step1-show">
@@ -105,16 +114,24 @@
 						  <div class="input-group-prepend">
 						    <button class="btn btn-outline-secondary" id="kurang" type="button">-</button>
 						  </div>
-						  <input type="number" class="form-control" id="qlt" placeholder="" aria-label="" aria-describedby="basic-addon1" style="text-align: center;" value="1" min="0" required="" name="qlt">
+						  <input type="number" class="form-control" id="qlt" placeholder="" aria-label="" aria-describedby="basic-addon1" style="text-align: center;" value="1" min="0" required="" name="qty">
 						  <div class="input-group-prepend">
 						    <button class="btn btn-outline-secondary" id="tambah" type="button">+</button>
 						  </div>
 						</div>
 
+					
+
 						 <div class="form-group">
 						    <label for="exampleInputEmail1">Note / catatan</label>
 						    <textarea class="form-control" name="note" style="height: 150px;" name="catatan"></textarea>
 						    <small id="emailHelp" class="form-text text-muted">fill in your notes if necessary.</small>
+						 </div>
+
+						 <div class="form-group">
+						    <label for="exampleInputEmail1">The writing on the flower board / Tulisan pada bunga</label>
+						    <textarea class="form-control" name="tulisan_papanbunga" style="height: 150px;" name="catatan"></textarea>
+						   
 						 </div>
 						 	<button type="button" id="step1" class="btn btn-primary btn-lg btn-block">Next</button>
 					 </div>
@@ -185,7 +202,7 @@
 				  					<input type="number" name="telp_penerima" class="form-control" required="" placeholder="Receiver phone">
 				  				</div>
 				  			</div>
-				  			<button type="button" id="step2" class="btn btn-primary btn-lg btn-block">Next</button>
+				  			<input type="submit" name="kirim" class="btn btn-primary btn-lg btn-block" value="View Summary">
 
 				  		</div>
 					  	
@@ -197,7 +214,7 @@
 
 					  <!-- step 3  -->
 
-				  	<div id="step3-show" style="display: none;">
+				  	<!-- <div id="step3-show" style="display: none;">
 
 				  		<div class="row">
 
@@ -228,9 +245,9 @@
 				  					<label style="font-weight: bold">From (Optional) / Dari (Opsional) :</label>
 				  					<input type="text" name="dari" class="form-control" required="" placeholder="From Jhon Doe">
 				  				</div>
-				  			</div>
+				  			</div> -->
 				  			
-				  			<input type="submit" name="kirim" class="btn btn-primary btn-lg btn-block" value="View Summary">
+				  			<!-- <input type="submit" name="kirim" class="btn btn-primary btn-lg btn-block" value="View Summary"> -->
 
 				  		</div>
 					  	

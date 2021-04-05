@@ -15,7 +15,7 @@ class Main_model extends CI_Model {
         $data = array();
         foreach($users as $user){
              $all = $user['KELURAHAN'].','.$user['KECAMATAN'].','.$user['KABUPATEN'].','.$user['PROVINSI'];
-            $data[] = array("id"=>$user['KPos'], "text"=>$all);
+            $data[] = array("id"=>$user['ID'], "text"=>$all);
         }
         return $data;
     }
