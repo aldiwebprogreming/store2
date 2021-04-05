@@ -202,6 +202,8 @@
 				        'nama_penerima' => $nama_penerima,
 				        'email_penerima' => $email_penerima,
 				        'telp_penerima' => $telp_penerima,
+				        'papan_bunga' => $papan_bunga,
+				        
 	
 				);
 

@@ -88,12 +88,53 @@
 					<img src="<?= base_url() ?>assets/img/1.png ?>" alt="images" class="img-thumbnail">
 					</div>
 
+					<?php $cart = $this->cart->contents(); ?>
+					
+
 					<div class="col-sm-8">
-						<div class="form-groub">
-							<label>Nama product</label>
-							<p></p>
+						<?php foreach ($cart as $item) { ?>
+						<div class="form-group">
+							<label class="for">Nama product</label>
+							<p><?= $item['name'] ?></p>
+						</div>
+
+						<div class="form-group">
+							<label class="for">Nama penerima</label>
+							<p><?= $item['nama_penerima'] ?></p>
+						</div>
+
+						<div class="form-group">
+							<label class="for">Email penerima</label>
+							<p><?= $item['email_penerima'] ?></p>
+						</div>
+
+						<div class="form-group">
+							<label class="for">Telp penerima</label>
+							<p><?= $item['telp_penerima'] ?></p>
+						</div>
+
+						<div class="form-group">
+							<label class="for">Nama penerima</label>
+							<p><?= $item['nama_penerima'] ?></p>
+						</div>
+						<div class="form-group">
+							<label class="for">Alamat penerima</label>
+							<p><?= $item['alamat_penerima'] ?></p>
+							<p><?= $item['kel'] ?>,<?= $item['kec'] ?>,<?= $item['kab'] ?>,<?= $item['prov'] ?></p>
+						</div>
+						<div class="form-group">
+							<label class="for">Catatan</label>
+							<p><?= $item['note'] ?></p>
+							
+						</div>
+						<div class="form-group">
+							<label class="for">Tulisan papan bunga</label>
+							<p><?= $item['papan_bunga'] ?></p>
+							
 						</div>
 					</div>
+
+				<?php } ?>
 
 
 				  </div>
@@ -103,10 +144,26 @@
 		</div>
 		<div class="col-sm-4">
 			
+			<div class="card" style="width: 18rem;">
+			  <div class="card-body">
+			  	<?php foreach ($cart as $item2) { ?>
+			   <label>Summary</label><label class="float-right">Rp.<?= $item2['price'] ?></label>
+			   <hr>
+			   <label>Grand Total</label><label class="float-right" style="font-size: 23px; color: orange;">Rp.<?= $item2['price'] ?></label>
+			   <hr>
+			<?php } ?>
+				<button class="btn btn-primary btn-sm btn-lg btn-block">Checkout</button>
+			  </div>
+
+			</div>
 		</div>
 	</div>
 </div>
 
- 
+ <style type="text/css">
+ 	.for{
+ 		font-weight: bold;
+ 	}
+ </style>
  </body>
  </html>
