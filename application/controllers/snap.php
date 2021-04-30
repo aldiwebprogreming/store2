@@ -129,14 +129,26 @@ class Snap extends CI_Controller {
 
     public function finish()
     {
-    	$result = json_decode($this->input->post('result_data'));
-    	echo 'RESULT <br><pre>';
-    	var_dump($result);
-    	echo '</pre>' ;
+    	$result = json_decode($this->input->post('result_data'), true);
+    	// echo 'RESULT <br><pre>';
+    	// var_dump($result);
+    	// echo '</pre>' ;
+    	$data = [
+    		'order_id' => $result['order_id'],
+    		'gross_amount' => $result['gross_amount'],
+    		'payment_type' => $result['payment_type'],
+    		'transaction_time' => $result['transaction_time'],
+ 			'transaction_status' => $result['transaction_status'],
+ 			'bank' => $result['va_numbers'][0]['bank'],
+ 			'via_number' => $result['va_numbers'][0]['va_number'],
+    	];
 
-    	// array asosiatif
-    	// $result = json_decode($this->input->post('result_data'), true);
-    	// echo $result['status_code'];
+    		$input = $this->db->insert('tbl_pay', $data);
+    		if ($input) {
+    			$this->session->set_flashdata('message', 'swal("Error!", "Yess brhasil", "success");');
+	         	 redirect("");
+    		}
+
 
     }
 }
